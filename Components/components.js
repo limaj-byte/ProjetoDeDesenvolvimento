@@ -10,7 +10,6 @@ async function carregarComponente(id, arquivo) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    carregarComponente("header", "Components/header.html");
-    carregarComponente("footer", "Components/footer.html");
-    
+    carregarComponente("header", "../Components/header.html");
+    carregarComponente("footer", "../Components/footer.html");
 });
