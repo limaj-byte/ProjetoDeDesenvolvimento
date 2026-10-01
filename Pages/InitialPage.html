@@ -14,21 +14,21 @@
     <form>
         <div class="Grupo-formulario">
             <label for="Email">Insira o Email de Usuario</label>
-            <input type="email" class="Form-Control" id="Email" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" class="Form-Control" id="email" aria-describedby="emailHelp" placeholder="Email" required>
         </div>
-        <divc class="Grupo-formulario">
+        <div class="Grupo-formulario">
             <label for="senha">Insira a Senha</label>
-            <input type="senha" class="Form-Control" id="senha" aria-describedby="SenhaHelp" placeholder="Senha">
+            <input type="password" class="Form-Control" id="senha" aria-describedby="SenhaHelp" placeholder="Senha" required>
         
         </div>
         <div class="Form-check">
             <input type="checkbox" class="Form-check" id="ChekBox">
             <label class="Form-check-label" for="CheckBox">Relembrar Login</label>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="submit" class="btn btn-primary" id="realizarLog">Enviar</button>
     </form>
 </body>
-<script src="script.js"></script>
+<script src="scriptInitalPage.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
