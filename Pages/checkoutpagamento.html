@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechStore</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>TechStore</h1>
+        <h2>Finalizar Compra</h2>
+        <hr>
+    </header>
+
+    <main>
+
+        <!-- Endereço de entrega -->
+        <section>
+            <h2>1. Endereço de Entrega</h2>
+
+            <p><strong>Nome:</strong> Gustavo Marques Costa</p>
+            <p><strong>Endereço:</strong> Rua das Flores, 123</p>
+            <p><strong>Cidade:</strong> Ji-Paraná - RO</p>
+            <p><strong>CEP:</strong> 76900-000</p>
+
+            <button type="button">Alterar Endereço</button>
+        </section>
+
+        <hr>
+
+        <!-- Escolha do frete -->
+        <section>
+            <h2>2. Escolha do Frete</h2>
+
+            <form>
+                <label>
+                    <input type="radio" name="frete" value="economico" required>
+                    Frete Econômico - R$ 15,00 (5 a 8 dias úteis)
+                </label>
+                <br>
+
+                <label>
+                    <input type="radio" name="frete" value="expresso">
+                    Frete Expresso - R$ 30,00 (2 a 3 dias úteis)
+                </label>
+                <br>
+
+                <label>
+                    <input type="radio" name="frete" value="gratis">
+                    Frete Grátis - 10 a 15 dias úteis
+                </label>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Forma de pagamento -->
+        <section>
+            <h2>3. Forma de Pagamento</h2>
+
+            <form>
+                <fieldset>
+                    <legend>Pix</legend>
+
+                    <label>
+                        <input type="radio" name="pagamento" value="pix">
+                        Pagar com Pix
+                    </label>
+
+                    <p>QR Code Pix (simulado):</p>
+
+                    <img
+                        src="https://placehold.co/200x200?text=QR+Code+Pix"
+                        alt="QR Code Pix fictício">
+
+                    <p><strong>Chave Pix fictícia:</strong></p>
+                    <p>techstore@example.com</p>
+
+                    <button type="button">Copiar Chave Pix</button>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Cartão de Crédito</legend>
+
+                    <label>
+                        <input type="radio" name="pagamento" value="cartao">
+                        Pagar com Cartão de Crédito
+                    </label>
+
+                    <p>
+                        <label for="titular">Nome do titular:</label><br>
+                        <input type="text" id="titular"
+                               placeholder="Nome no cartão">
+                    </p>
+
+                    <p>
+                        <label for="numero">Número do cartão:</label><br>
+                        <input type="text" id="numero"
+                               placeholder="0000 0000 0000 0000"
+                               maxlength="19">
+                    </p>
+
+                    <p>
+                        <label for="validade">Validade:</label><br>
+                        <input type="text" id="validade"
+                               placeholder="MM/AA" maxlength="5">
+                    </p>
+
+                    <p>
+                        <label for="cvv">CVV:</label><br>
+                        <input type="text" id="cvv"
+                               placeholder="123" maxlength="4">
+                    </p>
+
+                    <p>
+                        <label for="parcelas">Parcelamento:</label><br>
+                        <select id="parcelas" name="parcelas">
+                            <option value="1">1x de R$ 500,00 sem juros</option>
+                            <option value="2">2x de R$ 250,00 sem juros</option>
+                            <option value="3">3x de R$ 166,67 sem juros</option>
+                            <option value="4">4x de R$ 125,00 sem juros</option>
+                            <option value="5">5x de R$ 100,00 sem juros</option>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend>Boleto Bancário</legend>
+
+                    <label>
+                        <input type="radio" name="pagamento" value="boleto">
+                        Pagar com Boleto
+                    </label>
+
+                    <p>
+                        O boleto será gerado após a finalização do pedido.
+                    </p>
+
+                    <p><strong>Linha digitável fictícia:</strong></p>
+                    <p>00000.00000 00000.000000 00000.000000 0 00000000000000</p>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <!-- Resumo do pedido -->
+        <section>
+            <h2>4. Resumo do Pedido</h2>
+
+            <p>Notebook Intel Core i5 - R$ 2.899,90</p>
+            <p>Headset Gamer - R$ 249,90</p>
+            <p>Subtotal: R$ 3.149,80</p>
+            <p>Frete: A calcular</p>
+
+            <h3>Total: R$ 3.149,80 + frete</h3>
+        </section>
+
+        <hr>
+
+        <!-- Finalização -->
+        <section>
+            <h2>5. Finalizar Pedido</h2>
+
+            <p>
+                Confira os dados de entrega e pagamento antes de
+                concluir sua compra.
+            </p>
+
+            <button type="button">Finalizar Pedido</button>
+
+            <p>
+                <a href="index.html">Voltar para a página inicial</a>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
+        <p>Ambiente de demonstração. Pagamentos fictícios.</p>
+    </footer>
+
+</body>
+</html>
