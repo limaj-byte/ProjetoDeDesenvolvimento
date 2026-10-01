@@ -1,9 +1,11 @@
-const email = document.getElementById("email");
-const senha = document.getElementById("senha");
-const realizarLogin = document.getElementById("realizarLog");
+const email = document.getElementById("email")
+const senha = document.getElementById("senha")
 
-realizarLogin.addEventListener('click',function(event){
-    event.preventDefault();
-    if(email.value === "teste@gmail" && senha.value=="teste"){window.location.href = "/pages/homepage.html"}
-    else(alert("Email ou senha Incorretos!"))
-});
+function MudarPagina(){ 
+    if(email==="teste@gmail" && senha==="1234"){
+        window.location.href="homepage.html"
+    }
+    else{
+        alert("Email ou senha Invalidos")
+    }
+}
