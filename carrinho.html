@@ -1,0 +1,214 @@
+<!doctype html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho - TechNova Store</title>
+  </head>
+
+  <body>
+    <header id="header"></header>
+
+    <main>
+      <h1>Carrinho de Compras</h1>
+
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+            <th>Remover</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src="https://via.placeholder.com/150x150/EBF3FA/0066CC?text=Smartphone"
+                alt="Smartphone"
+                width="100"
+              />
+            </td>
+
+            <td>Smartphone TechPhone X</td>
+
+            <td>R$ 2.499,90</td>
+
+            <td>
+              <input type="number" value="1" min="1" />
+            </td>
+
+            <td>R$ 2.499,90</td>
+
+            <td>
+              <button type="button">Remover</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <img
+                src="https://via.placeholder.com/150x150/EBF3FA/0066CC?text=Fone"
+                alt="Fone Bluetooth"
+                width="100"
+              />
+            </td>
+
+            <td>Fone Bluetooth TechSound</td>
+
+            <td>R$ 299,90</td>
+
+            <td>
+              <input type="number" value="1" min="1" />
+            </td>
+
+            <td>R$ 299,90</td>
+
+            <td>
+              <button type="button">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <section>
+        <h2>Cupom de Desconto</h2>
+
+        <form id="form-cupom">
+          <label for="cupom"> Código do cupom: </label>
+
+          <input type="text" id="cupom" placeholder="Digite o cupom" />
+
+          <button type="submit">Aplicar</button>
+        </form>
+
+        <p id="mensagem-cupom"></p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>Frete</h2>
+
+        <form id="form-frete-carrinho">
+          <label for="cep-carrinho"> CEP: </label>
+
+          <input type="text" id="cep-carrinho" placeholder="00000-000" />
+
+          <button type="submit">Calcular</button>
+        </form>
+
+        <p id="resultado-frete-carrinho"></p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>Resumo da Compra</h2>
+
+        <p>
+          Subtotal:
+          <span id="subtotal">2799.80</span>
+        </p>
+
+        <p>
+          Frete:
+          <span id="frete">0.00</span>
+        </p>
+
+        <p>
+          Desconto:
+          <span id="desconto">0.00</span>
+        </p>
+
+        <p>
+          <strong> Total: R$ <span id="total">2799.80</span> </strong>
+        </p>
+
+        <button type="button">Finalizar Compra</button>
+      </section>
+
+      <br />
+
+      <a href="produtos.html"> Continuar Comprando </a>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/componentes.js"></script>
+
+    <script>
+      let subtotal = 2799.8;
+      let desconto = 0;
+      let frete = 0;
+
+      document
+        .getElementById("form-cupom")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let cupom = document.getElementById("cupom").value.toUpperCase();
+
+          if (cupom === "TECH10") {
+            desconto = subtotal * 0.1;
+
+            document.getElementById("mensagem-cupom").textContent =
+              "Cupom aplicado com sucesso! 10% de desconto.";
+          } else {
+            desconto = 0;
+
+            document.getElementById("mensagem-cupom").textContent =
+              "Cupom inválido.";
+          }
+
+          atualizarTotal();
+        });
+
+      document
+        .getElementById("form-frete-carrinho")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          let cep = document.getElementById("cep-carrinho").value;
+
+          if (subtotal > 299) {
+            frete = 0;
+
+            document.getElementById("resultado-frete-carrinho").textContent =
+              "Frete grátis para compras acima de R$ 299,00.";
+          } else if (cep.charAt(0) >= "0" && cep.charAt(0) <= "3") {
+            frete = 15;
+
+            document.getElementById("resultado-frete-carrinho").textContent =
+              "Frete: R$ 15,00 - Prazo: 3 dias.";
+          } else {
+            frete = 25;
+
+            document.getElementById("resultado-frete-carrinho").textContent =
+              "Frete: R$ 25,00 - Prazo: 7 dias.";
+          }
+
+          atualizarTotal();
+        });
+
+      function atualizarTotal() {
+        let total = subtotal + frete - desconto;
+
+        document.getElementById("subtotal").textContent = subtotal.toFixed(2);
+
+        document.getElementById("frete").textContent = frete.toFixed(2);
+
+        document.getElementById("desconto").textContent = desconto.toFixed(2);
+
+        document.getElementById("total").textContent = total.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
