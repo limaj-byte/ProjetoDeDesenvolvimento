@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crie sua conta na TechNova Store.">
+    <title>Criar conta | TechNova Store</title>
+</head>
+<body>
+    <header>
+        <a href="homepage.html" aria-label="TechNova Store - página inicial">TechNova Store</a>
+        <h1>Criar conta</h1>
+        <p>Preencha seus dados para cadastrar-se na TechNova Store.</p>
+    </header>
+
+    <main>
+        <form id="form-cadastro" action="#" method="post">
+            <fieldset>
+                <legend>Dados pessoais</legend>
+                <p>
+                    <label for="cadastro-nome">Nome completo</label><br>
+                    <input type="text" id="cadastro-nome" name="nome" autocomplete="name"
+                        maxlength="120" required>
+                </p>
+                <p>
+                    <label for="cadastro-cpf">CPF</label><br>
+                    <input type="text" id="cadastro-cpf" name="cpf" autocomplete="off"
+                        inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required>
+                </p>
+                <p>
+                    <label for="cadastro-email">E-mail</label><br>
+                    <input type="email" id="cadastro-email" name="email" autocomplete="email"
+                        placeholder="voce@exemplo.com" required>
+                </p>
+                <p>
+                    <label for="cadastro-telefone">Telefone</label><br>
+                    <input type="tel" id="cadastro-telefone" name="telefone" autocomplete="tel"
+                        placeholder="(00) 00000-0000" required>
+                </p>
+                <p>
+                    <label for="cadastro-nascimento">Data de nascimento</label><br>
+                    <input type="date" id="cadastro-nascimento" name="data-nascimento"
+                        autocomplete="bday" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Endereço</legend>
+                <p>
+                    <label for="cadastro-cep">CEP</label><br>
+                    <input type="text" id="cadastro-cep" name="cep" autocomplete="postal-code"
+                        inputmode="numeric" placeholder="00000-000" maxlength="9" required>
+                </p>
+                <p>
+                    <label for="cadastro-logradouro">Endereço (rua ou avenida)</label><br>
+                    <input type="text" id="cadastro-logradouro" name="logradouro"
+                        autocomplete="address-line1" maxlength="150" required>
+                </p>
+                <p>
+                    <label for="cadastro-numero">Número</label><br>
+                    <input type="text" id="cadastro-numero" name="numero" autocomplete="address-line2"
+                        maxlength="20" required>
+                </p>
+                <p>
+                    <label for="cadastro-complemento">Complemento (opcional)</label><br>
+                    <input type="text" id="cadastro-complemento" name="complemento" maxlength="100">
+                </p>
+                <p>
+                    <label for="cadastro-bairro">Bairro</label><br>
+                    <input type="text" id="cadastro-bairro" name="bairro" maxlength="100" required>
+                </p>
+                <p>
+                    <label for="cadastro-cidade">Cidade</label><br>
+                    <input type="text" id="cadastro-cidade" name="cidade" autocomplete="address-level2"
+                        maxlength="100" required>
+                </p>
+                <p>
+                    <label for="cadastro-estado">Estado (UF)</label><br>
+                    <input type="text" id="cadastro-estado" name="estado" autocomplete="address-level1"
+                        minlength="2" maxlength="2" required>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Segurança e privacidade</legend>
+                <p>
+                    <label for="cadastro-senha">Crie uma senha</label><br>
+                    <input type="password" id="cadastro-senha" name="senha" autocomplete="new-password"
+                        minlength="8" required>
+                    <br><small>Use pelo menos 8 caracteres.</small>
+                </p>
+                <p>
+                    <input type="checkbox" id="aceite-privacidade" name="aceite-privacidade" required>
+                    <label for="aceite-privacidade">Li e aceito os termos de privacidade e o tratamento dos
+                        meus dados para a criação da conta.</label>
+                </p>
+            </fieldset>
+
+            <p><button type="submit">Criar conta</button></p>
+        </form>
+    </main>
+
+    <footer>
+        <p><a href="InitialPage.html">Já tem uma conta? Entrar</a></p>
+        <p><a href="homepage.html">Voltar à página inicial</a></p>
+        <p>TechNova Store - Ambiente de demonstração.</p>
+    </footer>
+</body>
+</html>
