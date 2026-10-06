@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda</title>
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <main>
+
+    <section>
+        <h1>Central de Ajuda</h1>
+        <p>FAQ e Atendimento ao Cliente</p>
+    </section>
+
+    <hr>
+
+        <!-- Perguntas Frequentes -->
+        <section>
+            <h2>Perguntas Frequentes</h2>
+
+            <details>
+                <summary>Como posso acompanhar meu pedido?</summary>
+                <p>
+                    Você pode acompanhar seu pedido através do código de rastreio
+                    disponível na área "Minha Conta".
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary>Qual é o prazo de entrega?</summary>
+                <p>
+                    O prazo de entrega pode variar de acordo com a localização
+                    e a forma de envio escolhida. Informações adicionais podem ser enconradas na página "Minha conta".
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary>Como posso cancelar um pedido?</summary>
+                <p>
+                    Entre em contato com nosso atendimento informando o número
+                    do pedido para solicitar o cancelamento.
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary>O que faço se meu pedido não chegar?</summary>
+                <p>
+                    Verifique o código de rastreio e, caso o pedido esteja
+                    atrasado, entre em contato com nosso atendimento.
+                </p>
+            </details>
+
+            <br>
+
+            <details>
+                <summary>Como entrar em contato com o SAC?</summary>
+                <p>
+                    Preencha o formulário de contato abaixo com seus dados
+                    e sua solicitação.
+                </p>
+            </details>
+        </section>
+
+        <hr>
+
+        <!-- Formulário de contato -->
+        <section>
+            <h2>Entre em Contato</h2>
+
+            <form>
+
+                <label for="nome">Nome:</label>
+                <br>
+                <input type="text" id="nome" name="nome">
+
+                <br><br>
+
+                <label for="email">E-mail:</label>
+                <br>
+                <input type="email" id="email" name="email">
+
+                <br><br>
+
+                <label for="pedido">Número do Pedido:</label>
+                <br>
+                <input type="text" id="pedido" name="pedido">
+
+                <br><br>
+
+                <label for="assunto">Assunto:</label>
+                <br>
+                <input type="text" id="assunto" name="assunto">
+
+                <br><br>
+
+                <label for="mensagem">Mensagem:</label>
+                <br>
+                <textarea id="mensagem" name="mensagem" rows="6"></textarea>
+
+                <br><br>
+
+                <button type="submit">Enviar Mensagem</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <div id="footer"></div>
+
+    <script src="/Script/script.js"></script>
+    <script src="/Components/components.js"></script>
+</body>
+</html>
