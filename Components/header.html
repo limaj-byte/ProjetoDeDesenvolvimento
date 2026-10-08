@@ -1,37 +1,49 @@
-    <header class="header">
-    <div class="header-container">
-
-        <a href="/homepage.html" class="logo">
-            TechNova Store
+<header class="tn-header">
+    <div class="tn-header-main">
+        <a class="tn-logo" href="/homepage.html" aria-label="TechNova Store - Início">
+            <img src="/Images/technova-store-logo.png" alt="TechNova Store">
         </a>
 
-        <form class="search">
-            <input type="text" placeholder="O que você está procurando?">
-            <button type="submit" onclick="window.location.href='/busca.html'">🔍</button>
-        </form>
+        <div class="tn-search" id="Search" role="search">
+            <input
+                type="search"
+                id="campoPesquisa"
+                placeholder="O que você está procurando?"
+                aria-label="Buscar produtos"
+            >
 
-        <nav class="categories">
-            <a href="#">Smartphones</a>
-            <a href="#">Smart Home</a>
-            <a href="#">Periféricos</a>
-            <a href="#">Informática</a>
-            <a href="#">Acessórios</a>
-        </nav>
-
-        <div class="header-actions">
-
-            <a href="/profile.html" class="account">
-                👤
-                <span>Minha Conta</span>
-            </a>
-
-            <a href="/carrinho.html" class="cart">
-                🛒
-                <span>Carrinho</span>
-                <span id="cart-count">0</span>
-            </a>
-
+            <button type="button" id="botaoPesquisa" aria-label="Buscar">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m16 16 4 4"></path>
+                </svg>
+            </button>
         </div>
 
+        <div class="tn-actions">
+            <a class="tn-icon-link" href="#profile" aria-label="Minha conta" title="Minha conta">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4"></circle>
+                    <path d="M4 21a8 8 0 0 1 16 0"></path>
+                </svg>
+            </a>
+
+            <a class="tn-icon-link tn-cart" href="#carrinho" aria-label="Carrinho" title="Carrinho">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 2-1.6L21 8H6"></path>
+                    <circle cx="10" cy="20" r="1"></circle>
+                    <circle cx="18" cy="20" r="1"></circle>
+                </svg>
+                <span id="contador">0</span>
+            </a>
+        </div>
     </div>
+
+    <nav class="tn-nav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#mais-vendidos">Catálogo</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#lancamentos">Ofertas</a>
+        <a href="#profile">Minha Conta</a>
+    </nav>
 </header>
