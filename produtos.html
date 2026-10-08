@@ -15,8 +15,9 @@
       <section>
         <h2>Buscar produtos</h2>
 
-        <form>
-          <input type="text" placeholder="O que você está procurando?" />
+        <form action="busca.html" method="get" role="search">
+          <label for="busca-produtos">O que você está procurando?</label>
+          <input type="search" id="busca-produtos" name="q" placeholder="O que você está procurando?" />
           <button type="submit">Buscar</button>
         </form>
       </section>
@@ -26,9 +27,10 @@
       <section>
         <h2>Filtros</h2>
 
-        <label for="preco">Faixa de Preço:</label>
+        <form action="produtos.html" method="get">
+          <label for="preco">Faixa de Preço:</label>
 
-        <select id="preco">
+        <select id="preco" name="preco">
           <option value="">Todos</option>
           <option value="500">Até R$ 500</option>
           <option value="1000">R$ 500 a R$ 1.000</option>
@@ -38,9 +40,9 @@
 
         <br /><br />
 
-        <label for="marca">Marca:</label>
+          <label for="marca">Marca:</label>
 
-        <select id="marca">
+        <select id="marca" name="marca">
           <option value="">Todas</option>
           <option value="samsung">Samsung</option>
           <option value="apple">Apple</option>
@@ -50,9 +52,9 @@
 
         <br /><br />
 
-        <label for="categoria">Categoria:</label>
+          <label for="categoria">Categoria:</label>
 
-        <select id="categoria">
+        <select id="categoria" name="categoria">
           <option value="">Todas</option>
           <option value="smartphones">Smartphones</option>
           <option value="smart-home">Smart Home</option>
@@ -63,7 +65,8 @@
 
         <br /><br />
 
-        <button type="button">Aplicar Filtros</button>
+          <button type="submit">Aplicar Filtros</button>
+        </form>
       </section>
 
       <hr />
@@ -71,11 +74,15 @@
       <section>
         <h2>Ordenar Produtos</h2>
 
-        <select>
+        <form action="produtos.html" method="get">
+          <label for="ordenacao">Ordenar por:</label>
+          <select id="ordenacao" name="ordenacao">
           <option value="">Selecionar</option>
           <option value="menor-preco">Menor Preço</option>
           <option value="mais-vendidos">Mais Vendidos</option>
         </select>
+          <button type="submit">Ordenar</button>
+        </form>
       </section>
 
       <hr />
@@ -98,9 +105,7 @@
 
           <button popovertarget="produto1">Ver detalhes</button>
 
-          <a href="carrinho.html">
-            <button type="button">Adicionar ao Carrinho</button>
-          </a>
+          <a href="carrinho.html">Adicionar ao Carrinho</a>
         </article>
 
         <br />
@@ -120,9 +125,7 @@
 
           <button popovertarget="produto2">Ver detalhes</button>
 
-          <a href="carrinho.html">
-            <button type="button">Adicionar ao Carrinho</button>
-          </a>
+          <a href="carrinho.html">Adicionar ao Carrinho</a>
         </article>
 
         <br />
@@ -142,9 +145,7 @@
 
           <button popovertarget="produto3">Ver detalhes</button>
 
-          <a href="carrinho.html">
-            <button type="button">Adicionar ao Carrinho</button>
-          </a>
+          <a href="carrinho.html">Adicionar ao Carrinho</a>
         </article>
       </section>
 
@@ -224,9 +225,7 @@
 
       <br /><br />
 
-      <a href="carrinho.html">
-        <button type="button">Adicionar ao Carrinho</button>
-      </a>
+      <a href="carrinho.html">Adicionar ao Carrinho</a>
 
       <button popovertarget="produto1">Fechar</button>
     </div>
@@ -294,9 +293,7 @@
 
       <br /><br />
 
-      <a href="carrinho.html">
-        <button type="button">Adicionar ao Carrinho</button>
-      </a>
+      <a href="carrinho.html">Adicionar ao Carrinho</a>
 
       <button popovertarget="produto2">Fechar</button>
     </div>
@@ -364,15 +361,13 @@
 
       <br /><br />
 
-      <a href="carrinho.html">
-        <button type="button">Adicionar ao Carrinho</button>
-      </a>
+      <a href="carrinho.html">Adicionar ao Carrinho</a>
 
       <button popovertarget="produto3">Fechar</button>
     </div>
 
     <footer id="footer"></footer>
 
-    <script src="js/componentes.js"></script>
+    <script src="/Components/components.js"></script>
   </body>
 </html>

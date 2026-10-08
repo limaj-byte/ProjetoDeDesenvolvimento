@@ -4,31 +4,32 @@
             <img src="/Images/technova-store-logo.png" alt="TechNova Store">
         </a>
 
-        <div class="tn-search" id="Search" role="search">
+        <form class="tn-search" id="Search" role="search" action="/busca.html" method="get">
             <input
                 type="search"
                 id="campoPesquisa"
+                name="q"
                 placeholder="O que você está procurando?"
                 aria-label="Buscar produtos"
             >
 
-            <button type="button" id="botaoPesquisa" aria-label="Buscar">
+            <button type="submit" id="botaoPesquisa" aria-label="Buscar">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="11" cy="11" r="7"></circle>
                     <path d="m16 16 4 4"></path>
                 </svg>
             </button>
-        </div>
+        </form>
 
         <div class="tn-actions">
-            <a class="tn-icon-link" href="#profile" aria-label="Minha conta" title="Minha conta">
+            <a class="tn-icon-link" href="/profile.html" aria-label="Minha conta" title="Minha conta">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="12" cy="8" r="4"></circle>
                     <path d="M4 21a8 8 0 0 1 16 0"></path>
                 </svg>
             </a>
 
-            <a class="tn-icon-link tn-cart" href="#carrinho" aria-label="Carrinho" title="Carrinho">
+            <a class="tn-icon-link tn-cart" href="/carrinho.html" aria-label="Carrinho" title="Carrinho">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 2-1.6L21 8H6"></path>
                     <circle cx="10" cy="20" r="1"></circle>
@@ -40,10 +41,10 @@
     </div>
 
     <nav class="tn-nav" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
-        <a href="#mais-vendidos">Catálogo</a>
-        <a href="#categorias">Categorias</a>
-        <a href="#lancamentos">Ofertas</a>
-        <a href="#profile">Minha Conta</a>
+        <a href="/homepage.html">Início</a>
+        <a href="/produtos.html">Catálogo</a>
+        <a href="/homepage.html#categorias">Categorias</a>
+        <a href="/homepage.html#lancamentos">Ofertas</a>
+        <a href="/profile.html">Minha Conta</a>
     </nav>
 </header>
