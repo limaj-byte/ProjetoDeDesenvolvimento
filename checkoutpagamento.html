@@ -18,15 +18,37 @@
     <main>
 
         <!-- Endereço de entrega -->
-        <section>
+        <section id="secao-endereco">
             <h2>1. Endereço de Entrega</h2>
 
-            <p><strong>Nome:</strong> Gustavo Marques Costa</p>
-            <p><strong>Endereço:</strong> Rua das Flores, 123</p>
-            <p><strong>Cidade:</strong> Ji-Paraná - RO</p>
-            <p><strong>CEP:</strong> 76900-000</p>
+            <div id="dados-endereco">
+                <p><strong>Nome:</strong> <span id="nome-exibicao">Gustavo Marques Costa</span></p>
+                <p><strong>Endereço:</strong> <span id="endereco-exibicao">Rua das Flores, 123</span></p>
+                <p><strong>Cidade:</strong> <span id="cidade-exibicao">Ji-Paraná - RO</span></p>
+                <p><strong>CEP:</strong> <span id="cep-exibicao">76900-000</span></p>
+                <button type="button" id="alterar-endereco">Alterar Endereço</button>
+            </div>
 
-            <button type="button">Alterar Endereço</button>
+            <form id="form-endereco" hidden>
+                <p>
+                    <label for="nome">Nome:</label><br>
+                    <input type="text" id="nome" value="Gustavo Marques Costa" required>
+                </p>
+                <p>
+                    <label for="endereco">Endereço:</label><br>
+                    <input type="text" id="endereco" value="Rua das Flores, 123" required>
+                </p>
+                <p>
+                    <label for="cidade">Cidade/UF:</label><br>
+                    <input type="text" id="cidade" value="Ji-Paraná - RO" required>
+                </p>
+                <p>
+                    <label for="cep">CEP:</label><br>
+                    <input type="text" id="cep" value="76900-000" inputmode="numeric" maxlength="9" required>
+                </p>
+                <button type="submit">Salvar Endereço</button>
+                <button type="button" id="cancelar-alteracao">Cancelar</button>
+            </form>
         </section>
 
         <hr>
@@ -188,6 +210,32 @@
         <p>&copy; 2026 TechStore - Todos os direitos reservados.</p>
         <p>Ambiente de demonstração. Pagamentos fictícios.</p>
     </footer>
+
+    <script>
+        const dadosEndereco = document.getElementById('dados-endereco');
+        const formularioEndereco = document.getElementById('form-endereco');
+
+        document.getElementById('alterar-endereco').addEventListener('click', () => {
+            dadosEndereco.hidden = true;
+            formularioEndereco.hidden = false;
+            document.getElementById('nome').focus();
+        });
+
+        document.getElementById('cancelar-alteracao').addEventListener('click', () => {
+            formularioEndereco.hidden = true;
+            dadosEndereco.hidden = false;
+        });
+
+        formularioEndereco.addEventListener('submit', (evento) => {
+            evento.preventDefault();
+            document.getElementById('nome-exibicao').textContent = document.getElementById('nome').value;
+            document.getElementById('endereco-exibicao').textContent = document.getElementById('endereco').value;
+            document.getElementById('cidade-exibicao').textContent = document.getElementById('cidade').value;
+            document.getElementById('cep-exibicao').textContent = document.getElementById('cep').value;
+            formularioEndereco.hidden = true;
+            dadosEndereco.hidden = false;
+        });
+    </script>
 
 </body>
 </html>
