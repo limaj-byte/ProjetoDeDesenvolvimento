@@ -5,12 +5,8 @@
         </a>
 
         <div class="tn-search" id="Search" role="search">
-            <input
-                type="search"
-                id="campoPesquisa"
-                placeholder="O que você está procurando?"
-                aria-label="Buscar produtos"
-            >
+            <input type="search" id="campoPesquisa" placeholder="O que você está procurando?"
+                aria-label="Buscar produtos">
 
             <button type="button" id="botaoPesquisa" aria-label="Buscar">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -21,7 +17,7 @@
         </div>
 
         <div class="tn-actions">
-            <a class="tn-icon-link" href="#profile" aria-label="Minha conta" title="Minha conta">
+            <a class="tn-icon-link" href="/profile.html" aria-label="Minha conta" title="Minha conta">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="12" cy="8" r="4"></circle>
                     <path d="M4 21a8 8 0 0 1 16 0"></path>
@@ -40,10 +36,448 @@
     </div>
 
     <nav class="tn-nav" aria-label="Navegação principal">
-        <a href="#inicio">Início</a>
-        <a href="#mais-vendidos">Catálogo</a>
+        <a href="/homepage.html">Início</a>
+        <a href="/produtos.html">Catálogo</a>
         <a href="#categorias">Categorias</a>
         <a href="#lancamentos">Ofertas</a>
-        <a href="#profile">Minha Conta</a>
+        <a href="/profile.html">Minha Conta</a>
     </nav>
 </header>
+
+
+<!--CSS Interno-->
+<style>
+/* =========================================
+
+VARIÁVEIS E CONFIGURAÇÕES GERAIS
+========================================= */
+
+:root{
+--azul-tech: #071b36;
+--azul: #0878f9;
+--azul-hover: #0056b3;
+--branco: #ffffff;
+--texto: #263449;
+--verde: #20c997;
+--raio: 10px;
+}
+
+#header .tn-header,
+#header .tn-header * {
+box-sizing: border-box;
+}
+
+/* =========================================
+2. CONTAINER PRINCIPAL DO HEADER
+========================================= */
+
+#header .tn-header {
+display: grid;
+grid-template-columns: minmax(0, 1fr);
+grid-template-rows: auto auto;
+
+width: min(1400px, calc(100% - 40px));
+margin: 12px auto 18px;
+padding: 8px 24px 0;
+
+overflow: hidden;
+border-radius: 12px;
+
+background: var(--azul-tech);
+color: var(--branco);
+
+box-shadow: 0 8px 24px rgba(15, 32, 67, 0.16);
+
+}
+
+/* =========================================
+3. LINHA PRINCIPAL
+Logo | Busca | Conta | Carrinho
+========================================= */
+
+#header .tn-header-main {
+display: grid;
+
+grid-template-columns:
+    minmax(190px, 230px)
+    minmax(200px, 1fr)
+    auto;
+
+align-items: center;
+column-gap: 20px;
+
+min-height: 78px;
+
+}
+
+/* =========================================
+4. LOGO
+========================================= */
+
+#header .tn-logo {
+display: flex;
+align-items: center;
+justify-content: flex-start;
+
+width: 100%;
+max-width: 230px;
+
+text-decoration: none;
+
+}
+
+#header .tn-logo img {
+display: block;
+
+width: 100%;
+max-width: 220px;
+max-height: 68px;
+
+object-fit: contain;
+object-position: left center;
+
+}
+
+/* =========================================
+5. CAMPO DE BUSCA
+========================================= */
+
+#header .tn-search {
+display: flex;
+align-items: center;
+
+justify-self: center;
+
+width: min(100%, 520px);
+min-width: 0;
+height: 44px;
+
+overflow: hidden;
+border-radius: var(--raio);
+
+background: var(--branco);
+
+}
+
+#header .tn-search input {
+flex: 1;
+width: 100%;
+min-width: 0;
+height: 100%;
+
+border: 0;
+outline: none;
+
+padding: 0 16px;
+
+background: var(--branco);
+color: var(--texto);
+
+font-size: 0.92rem;
+
+}
+
+#header .tn-search input::placeholder {
+color: #758196;
+}
+
+#header .tn-search input {
+outline: 2px solid var(--azul);
+outline-offset: -2px;
+}
+
+/* Botão de pesquisa */
+
+#header .tn-search button {
+display: grid;
+flex: 0 0 48px;
+
+width: 48px;
+height: 44px;
+
+place-items: center;
+
+border: 0;
+border-radius: 0;
+padding: 0;
+
+background: var(--azul);
+color: var(--branco);
+
+cursor: pointer;
+transition: background 160ms ease;
+
+}
+
+#header .tn-search button {
+background: var(--azul-hover);
+}
+
+#header .tn-search button svg {
+display: block;
+
+width: 22px;
+height: 22px;
+
+fill: none;
+stroke: currentColor;
+stroke-width: 1.8;
+stroke-linecap: round;
+stroke-linejoin: round;
+
+}
+
+/* =========================================
+6. AÇÕES: CONTA E CARRINHO
+========================================= */
+
+#header .tn-actions {
+display: flex;
+align-items: center;
+justify-self: end;
+
+gap: 14px;
+
+}
+
+#header .tn-icon-link {
+position: relative;
+
+display: grid;
+flex: 0 0 44px;
+
+width: 44px;
+height: 44px;
+
+place-items: center;
+
+border-radius: 8px;
+
+color: var(--branco);
+text-decoration: none;
+
+transition:
+    background 160ms ease,
+    color 160ms ease;
+
+}
+
+#header .tn-icon-link {
+background: rgba(255, 255, 255, 0.1);
+color: #a9d2ff;
+}
+
+#header .tn-icon-link svg {
+display: block;
+
+width: 25px;
+height: 25px;
+
+fill: none;
+stroke: currentColor;
+stroke-width: 1.8;
+stroke-linecap: round;
+stroke-linejoin: round;
+
+}
+
+/* Contador de itens do carrinho */
+
+#header .tn-cart #contador {
+position: absolute;
+top: 0;
+right: 0;
+
+display: grid;
+min-width: 19px;
+height: 19px;
+
+place-items: center;
+
+border-radius: 50%;
+padding: 0 5px;
+
+background: var(--verde);
+color: var(--branco);
+
+font-size: 0.7rem;
+font-weight: 700;
+line-height: 1;
+
+}
+
+/* =========================================
+7. MENU DE NAVEGAÇÃO
+========================================= */
+
+#header .tn-nav {
+display: flex;
+
+grid-column: 1 / -1;
+
+min-width: 0;
+min-height: 48px;
+
+flex-wrap: wrap;
+justify-content: center;
+align-items: stretch;
+
+gap: 0 clamp(18px, 4vw, 52px);
+
+border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+}
+
+#header .tn-nav a {
+display: flex;
+align-items: center;
+
+min-height: 45px;
+
+border-bottom: 3px solid transparent;
+
+color: var(--branco);
+
+font-size: 0.92rem;
+font-weight: 500;
+text-decoration: none;
+
+transition:
+    color 160ms ease,
+    border-color 160ms ease;
+
+}
+
+#header .tn-nav a,
+#header .tn-nav a {
+border-bottom-color: var(--azul);
+color: #a9d2ff;
+}
+
+/* =========================================
+8. ACESSIBILIDADE E FOCO
+========================================= */
+
+#header .tn-icon-link,
+#header .tn-nav a,
+#header .tn-logo,
+#header .tn-search button {
+outline: 2px solid #8fc5ff;
+outline-offset: 3px;
+}
+
+/* =========================================
+9. TABLETS
+========================================= */
+
+@media (max-width: 900px) {
+#header .tn-header {
+width: calc(100% - 24px);
+padding: 8px 16px 0;
+}
+
+#header .tn-header-main {
+    grid-template-columns:
+        minmax(140px, 180px)
+        minmax(150px, 1fr)
+        auto;
+
+    column-gap: 12px;
+}
+
+#header .tn-logo img {
+    max-width: 175px;
+}
+
+#header .tn-actions {
+    gap: 4px;
+}
+
+#header .tn-nav {
+    gap: 0 24px;
+}
+
+}
+
+/* =========================================
+10. CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+#header .tn-header {
+width: calc(100% - 16px);
+margin: 8px auto 14px;
+padding: 10px 12px 0;
+}
+
+#header .tn-header-main {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding-bottom: 12px;
+}
+
+#header .tn-logo {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#header .tn-logo img {
+    max-width: 165px;
+    max-height: 48px;
+}
+
+#header .tn-actions {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#header .tn-search {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    max-width: none;
+}
+
+#header .tn-nav {
+    gap: 0 18px;
+    justify-content: flex-start;
+}
+
+#header .tn-nav a {
+    min-height: 42px;
+    font-size: 0.84rem;
+}
+
+#header .tn-icon-link {
+    width: 38px;
+    height: 40px;
+    flex-basis: 38px;
+}
+
+}
+
+/* =========================================
+11. CELULARES PEQUENOS
+========================================= */
+
+@media (max-width: 360px) {
+#header .tn-header {
+padding-right: 8px;
+padding-left: 8px;
+}
+
+#header .tn-logo img {
+    max-width: 135px;
+}
+
+#header .tn-nav {
+    gap: 0 12px;
+}
+
+#header .tn-nav a {
+    font-size: 0.78rem;
+}
+
+}
+</style>
