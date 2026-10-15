@@ -1,24 +1,15 @@
 async function carregarComponente(id, arquivo) {
     const elemento = document.getElementById(id);
 
-    if (!elemento) {
-        return;
-    }
-
-    try {
+    if (elemento) {
         const resposta = await fetch(arquivo);
+        const conteudo = await resposta.text();
 
-        if (!resposta.ok) {
-            throw new Error(`Não foi possível carregar ${arquivo}`);
-        }
-
-        elemento.innerHTML = await resposta.text();
-    } catch (erro) {
-        console.error(erro);
+        elemento.innerHTML = conteudo;
     }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    carregarComponente("header", "/Components/header.html");
-    carregarComponente("footer", "/Components/footer.html");
+    carregarComponente("header", "../Components/header.html");
+    carregarComponente("footer", "../Components/footer.html");
 });
