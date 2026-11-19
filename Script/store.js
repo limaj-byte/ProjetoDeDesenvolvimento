@@ -556,6 +556,11 @@
     document.getElementById("total-checkout").textContent = formatMoney(subtotal);
 
     const paymentFields = document.querySelectorAll('[data-payment-details="cartao"] input');
+    const addressFields = form.querySelectorAll("[data-delivery-address] input");
+    const pickupNotice = form.querySelector("[data-pickup-notice]");
+    const fulfillmentLabel = document.getElementById("rotulo-recebimento");
+    const fulfillmentEstimateTitle = document.getElementById("previsao-recebimento-titulo");
+    const fulfillmentEstimate = document.getElementById("previsao-recebimento");
 
     const updatePaymentDetails = () => {
       const selectedPayment = form.querySelector('input[name="payment"]:checked').value;
@@ -570,7 +575,26 @@
     form.querySelectorAll('input[name="payment"]').forEach((option) => {
       option.addEventListener("change", updatePaymentDetails);
     });
+
+    const updateFulfillmentDetails = () => {
+      const isPickup = form.querySelector('input[name="fulfillment"]:checked').value === "pickup";
+      addressFields.forEach((field) => {
+        field.disabled = isPickup;
+        field.required = !isPickup;
+      });
+      pickupNotice.hidden = !isPickup;
+      fulfillmentLabel.textContent = isPickup ? "Retirada" : "Entrega";
+      fulfillmentEstimateTitle.textContent = isPickup ? "Retirada na loja" : "Previsão de entrega";
+      fulfillmentEstimate.textContent = isPickup
+        ? "Disponível após a confirmação do pedido."
+        : "De 5 a 8 dias úteis após a confirmação do pedido.";
+    };
+
+    form.querySelectorAll('input[name="fulfillment"]').forEach((option) => {
+      option.addEventListener("change", updateFulfillmentDetails);
+    });
     updatePaymentDetails();
+    updateFulfillmentDetails();
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -579,7 +603,12 @@
 
       try {
         const fields = new FormData(form);
-        const address = {
+        const isPickup = fields.get("fulfillment") === "pickup";
+        const pickupContact = isPickup ? {
+          name: String(fields.get("name")).trim(),
+          phone: String(fields.get("phone")).trim()
+        } : null;
+        const address = isPickup ? null : {
           name: String(fields.get("name")).trim(),
           phone: String(fields.get("phone")).trim(),
           street: String(fields.get("street")).trim(),
@@ -643,9 +672,11 @@
             createdAt: new Date().toISOString(),
             totalCents: items.reduce((sum, item) => sum + item.subtotalCents, 0),
             status: "Pendente",
-            pickupMethod: "Entrega no endereço informado",
+            statusUpdatedAt: new Date().toISOString(),
+            pickupMethod: isPickup ? "Retirada na loja" : "Entrega no endereço informado",
             paymentMethod,
             deliveryAddress: address,
+            pickupContact,
             idempotencyKey: key,
             items
           };
@@ -759,10 +790,14 @@
       return;
     }
 
+    const isPickup = order.pickupMethod === "Retirada na loja";
     const address = order.deliveryAddress;
     const addressText = address
       ? `${address.street}, ${address.neighborhood} · ${address.city}/${address.state} · CEP ${address.postalCode}`
       : "Endereço de entrega não informado";
+    const fulfillmentText = isPickup
+      ? "Retirada na loja: aguarde as orientações de retirada."
+      : `Endereço de entrega: ${addressText}`;
 
     target.innerHTML = `
       <section class="confirmation-card">
@@ -784,6 +819,10 @@
             <dt>Forma de pagamento</dt>
             <dd>${escapeHtml(order.paymentMethod)}</dd>
           </div>
+          <div>
+            <dt>Status do pedido</dt>
+            <dd>${escapeHtml(order.status)}</dd>
+          </div>
         </dl>
         <p class="confirmation-banner">
           Enviaremos atualizações sobre o andamento do seu pedido.
@@ -794,7 +833,8 @@
           <a class="secondary-action" href="catalogo.html">Voltar para a loja</a>
         </div>
         <p class="confirmation-address">
-          <strong>Endereço de entrega:</strong> ${escapeHtml(addressText)}
+          <strong>${isPickup ? "Recebimento:" : "Endereço de entrega:"}</strong>
+          ${escapeHtml(isPickup ? fulfillmentText : addressText)}
         </p>
       </section>
       <aside class="checkout-card order-summary confirmation-summary"
@@ -819,7 +859,7 @@
             <dd>${formatMoney(order.totalCents)}</dd>
           </div>
           <div>
-            <dt>Entrega</dt>
+            <dt>${isPickup ? "Retirada" : "Entrega"}</dt>
             <dd>Grátis</dd>
           </div>
           <div class="summary-total">
@@ -828,8 +868,8 @@
           </div>
         </dl>
         <div class="delivery-estimate">
-          <strong>Previsão de entrega</strong>
-          <p>De 5 a 8 dias úteis.</p>
+          <strong>${isPickup ? "Retirada na loja" : "Previsão de entrega"}</strong>
+          <p>${isPickup ? "Disponível após a confirmação do pedido." : "De 5 a 8 dias úteis."}</p>
         </div>
       </aside>
     `;
@@ -926,6 +966,7 @@
       }
 
       order.status = status;
+      order.statusUpdatedAt = new Date().toISOString();
       saveDb(db);
       message("Status do pedido atualizado.", "success");
       load();
@@ -963,8 +1004,11 @@
     if (event.detail?.id === "header") updateCartBadge();
   });
 
-  window.addEventListener("storage", () => {
+  window.addEventListener("storage", (event) => {
     updateCartBadge();
+    if (event.key === DB_KEY && document.getElementById("lista-pedidos")) {
+      initProfile();
+    }
   });
 
   document.addEventListener("DOMContentLoaded", init);

@@ -10,11 +10,11 @@ Abra a pasta no VS Code e inicie `homepage.html` com a extensão Live Server. O 
 
 1. Crie uma conta em **Criar conta** e entre.
 2. Na página de produtos, escolha quantidade e adicione itens ao carrinho.
-3. Informe o endereço de entrega, escolha uma forma de pagamento simulada e finalize o pedido.
+3. Escolha entrega no endereço ou retirada na loja, informe os dados necessários, selecione uma forma de pagamento simulada e finalize o pedido.
 4. Acompanhe o pedido em **Minha conta**.
 5. Abra `admin.html` no mesmo navegador para filtrar pedidos e alterar seus status.
 
-O catálogo começa com três produtos e quantidades de estoque demonstrativas. A finalização confere os itens e o estoque atuais antes de gravar o pedido, preservando nome, quantidade, preço, endereço de entrega e forma de pagamento no momento da compra. Cancelar um pedido repõe o estoque local; reativá-lo confere o estoque disponível.
+O catálogo começa com três produtos e quantidades de estoque demonstrativas. A finalização confere os itens e o estoque atuais antes de gravar o pedido, preservando nome, quantidade, preço, modalidade de recebimento, endereço quando aplicável, forma de pagamento e status inicial no momento da compra. Cancelar um pedido repõe o estoque local; reativá-lo confere o estoque disponível.
 
 ## Limites deste protótipo
 

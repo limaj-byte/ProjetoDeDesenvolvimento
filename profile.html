@@ -26,8 +26,8 @@
                     <button type="button" class="avatar-edit" aria-label="Alterar foto">📷</button>
                 </div>
 
-                <h2 id="nomePerfil">Jaio silvax</h2>
-                <p id="emailPerfil">jairo@email.com</p>
+                <h2 id="cliente-nome">Minha conta</h2>
+                <p id="cliente-email"></p>
                 <span class="vip-badge">Cliente VIP TechNova</span>
             </div>
 
@@ -108,30 +108,8 @@
             <!-- Meus pedidos -->
             <section id="pedidos">
                 <h2>Meus Pedidos</h2>
-
-                <div>
-                    <h3>Pedido #1001</h3>
-                    <p>Data: 01/10/2026</p>
-                    <p>Status: Em Separação</p>
-                    <p>Código de Rastreio: BR123456789</p>
-                </div>
-
-                <hr>
-
-                <div>
-                    <h3>Pedido #1002</h3>
-                    <p>Data: 28/09/2026</p>
-                    <p>Status: Enviado</p>
-                    <p>Código de Rastreio: BR987654321</p>
-                </div>
-
-                <hr>
-
-                <div>
-                    <h3>Pedido #1003</h3>
-                    <p>Data: 20/09/2026</p>
-                    <p>Status: Entregue</p>
-                    <p>Código de Rastreio: BR456789123</p>
+                <div id="lista-pedidos" aria-live="polite">
+                    <p>Carregando pedidos…</p>
                 </div>
             </section>
 
@@ -159,5 +137,6 @@
     <script src="/Script/script.js"></script>
     <script src="/Components/components.js"></script>
     <script src="/Script/profile.js"></script>
+    <script src="/Script/store.js" defer></script>
 </body>
 </html>

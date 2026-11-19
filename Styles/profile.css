@@ -336,14 +336,20 @@ legend {
     margin-bottom: 6px;
 }
 
-#pedidos > div {
+#lista-pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#lista-pedidos article {
     padding: 16px 20px;
     border: 1px solid var(--gray-border);
     border-radius: 10px;
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-#pedidos > div:hover {
+#lista-pedidos article:hover {
     border-color: var(--blue);
     box-shadow: 0 4px 14px rgba(49, 116, 194, 0.12);
 }
@@ -359,6 +365,14 @@ legend {
     font-size: 13px;
     color: var(--text-light);
     margin-bottom: 2px;
+}
+
+#lista-pedidos ol,
+#lista-pedidos ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    color: var(--text-light);
+    font-size: 13px;
 }
 
 /* =========================================================

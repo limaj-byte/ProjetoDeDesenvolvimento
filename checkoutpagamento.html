@@ -22,8 +22,19 @@
 
     <form id="checkout-form" class="checkout-layout">
       <div class="checkout-details">
-        <section class="checkout-card" aria-labelledby="entrega-titulo">
-          <h2 id="entrega-titulo"><span class="step-number">1</span> Dados de entrega</h2>
+        <section class="checkout-card" aria-labelledby="recebimento-titulo">
+          <h2 id="recebimento-titulo"><span class="step-number">1</span> Recebimento do pedido</h2>
+          <fieldset class="fulfillment-options">
+            <legend class="visually-hidden">Escolha como deseja receber o pedido</legend>
+            <label class="fulfillment-option">
+              <input type="radio" name="fulfillment" value="delivery" checked>
+              <span><strong>Entrega no endereço</strong><small>Receba no endereço informado</small></span>
+            </label>
+            <label class="fulfillment-option">
+              <input type="radio" name="fulfillment" value="pickup">
+              <span><strong>Retirar na loja</strong><small>Retire seu pedido na loja</small></span>
+            </label>
+          </fieldset>
           <div class="form-grid">
             <div class="form-field">
               <label for="entrega-nome">Nome completo</label>
@@ -33,27 +44,30 @@
               <label for="entrega-telefone">Telefone</label>
               <input id="entrega-telefone" name="phone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required>
             </div>
-            <div class="form-field form-field-wide">
+            <div class="form-field form-field-wide" data-delivery-address>
               <label for="entrega-endereco">Endereço</label>
               <input id="entrega-endereco" name="street" autocomplete="street-address" placeholder="Rua, número e complemento" required>
             </div>
-            <div class="form-field">
+            <div class="form-field" data-delivery-address>
               <label for="entrega-bairro">Bairro</label>
               <input id="entrega-bairro" name="neighborhood" required>
             </div>
-            <div class="form-field">
+            <div class="form-field" data-delivery-address>
               <label for="entrega-cidade">Cidade</label>
               <input id="entrega-cidade" name="city" autocomplete="address-level2" required>
             </div>
-            <div class="form-field">
+            <div class="form-field" data-delivery-address>
               <label for="entrega-estado">Estado</label>
               <input id="entrega-estado" name="state" autocomplete="address-level1" maxlength="2" placeholder="UF" required>
             </div>
-            <div class="form-field">
+            <div class="form-field" data-delivery-address>
               <label for="entrega-cep">CEP</label>
               <input id="entrega-cep" name="postalCode" autocomplete="postal-code" inputmode="numeric" placeholder="00000-000" maxlength="9" required>
             </div>
           </div>
+          <p class="fulfillment-notice" data-pickup-notice hidden>
+            Você receberá as orientações para retirada após a confirmação do pedido.
+          </p>
         </section>
 
         <section class="checkout-card" aria-labelledby="pagamento-titulo">
@@ -105,7 +119,7 @@
 
         <section class="checkout-card review-card" aria-labelledby="revisao-titulo">
           <h2 id="revisao-titulo"><span class="step-number">3</span> Revisar pedido</h2>
-          <p>Ao finalizar, você confirma os dados de entrega e a forma de pagamento escolhida.</p>
+          <p>Ao finalizar, você confirma a modalidade de recebimento e a forma de pagamento escolhidas.</p>
           <button class="checkout-submit" type="submit" id="confirmar-pedido">Finalizar compra</button>
           <a class="back-to-cart" href="carrinho.html">Voltar ao carrinho</a>
         </section>
@@ -116,12 +130,12 @@
         <ul id="resumo-checkout" class="order-items"><li>Carregando itens…</li></ul>
         <dl class="summary-totals">
           <div><dt>Subtotal</dt><dd id="subtotal-checkout">R$ 0,00</dd></div>
-          <div><dt>Entrega</dt><dd>Grátis</dd></div>
+          <div><dt id="rotulo-recebimento">Entrega</dt><dd id="custo-recebimento">Grátis</dd></div>
           <div class="summary-total"><dt>Total</dt><dd id="total-checkout">R$ 0,00</dd></div>
         </dl>
         <div class="delivery-estimate">
-          <strong>Previsão de entrega</strong>
-          <p>De 5 a 8 dias úteis após a confirmação do pedido.</p>
+          <strong id="previsao-recebimento-titulo">Previsão de entrega</strong>
+          <p id="previsao-recebimento">De 5 a 8 dias úteis após a confirmação do pedido.</p>
         </div>
       </aside>
     </form>

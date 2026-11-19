@@ -156,7 +156,8 @@ body.confirmation-page {
   outline: 2px solid rgba(30, 91, 216, 0.15);
 }
 
-.payment-options {
+.payment-options,
+.fulfillment-options {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
@@ -165,7 +166,12 @@ body.confirmation-page {
   border: 0;
 }
 
-.payment-option {
+.fulfillment-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.payment-option,
+.fulfillment-option {
   display: flex;
   min-height: 58px;
   align-items: flex-start;
@@ -176,26 +182,31 @@ body.confirmation-page {
   cursor: pointer;
 }
 
-.payment-option:has(input:checked) {
+.payment-option:has(input:checked),
+.fulfillment-option:has(input:checked) {
   border-color: var(--blue);
   background: #f2f7ff;
 }
 
-.payment-option input {
+.payment-option input,
+.fulfillment-option input {
   margin: 3px 0 0;
   accent-color: var(--blue);
 }
 
-.payment-option span {
+.payment-option span,
+.fulfillment-option span {
   display: grid;
   gap: 2px;
 }
 
-.payment-option strong {
+.payment-option strong,
+.fulfillment-option strong {
   font-size: 12px;
 }
 
-.payment-option small {
+.payment-option small,
+.fulfillment-option small {
   color: var(--text-light);
   font-size: 10px;
 }
@@ -209,7 +220,8 @@ body.confirmation-page {
 }
 
 .simulation-note,
-.payment-notice {
+.payment-notice,
+.fulfillment-notice {
   margin: 12px 0 0;
   padding: 10px 12px;
   border-radius: 5px;
@@ -501,11 +513,13 @@ body.confirmation-page {
     padding: 15px;
   }
 
-  .payment-options {
+  .payment-options,
+  .fulfillment-options {
     grid-template-columns: 1fr;
   }
 
-  .payment-option {
+  .payment-option,
+  .fulfillment-option {
     min-height: 0;
   }
 

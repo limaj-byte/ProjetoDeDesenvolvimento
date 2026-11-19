@@ -8,8 +8,8 @@ const telefone = document.getElementById("telefone");
 const nascimento = document.getElementById("nascimento");
 const genero = document.getElementById("genero");
 
-const nomePerfil = document.getElementById("nomePerfil");
-const emailPerfil = document.getElementById("emailPerfil");
+const nomePerfil = document.getElementById("cliente-nome");
+const emailPerfil = document.getElementById("cliente-email");
 
 // Carrega os dados salvos
 function carregarDados() {
